@@ -1,0 +1,359 @@
+body
+{
+	background-color: #240f04;
+	margin: 15px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 14px;
+}
+
+a
+{
+	color: #732b2e;
+	text-decoration: none;
+}
+
+a:hover, a:active { text-decoration: underline; }
+
+form
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+img { border: 0; }
+form#jumpmenu { display: inline; }
+
+#container-main
+{
+	width: 860px;
+	margin: auto;
+	background-color: #ecede8;
+	border: 1px solid #7e5733;
+	background-image: url(images/background-map.jpg);
+	background-repeat: no-repeat;
+}
+
+#nav-top
+{
+	background-color: #603813;
+	text-align: right;
+	color: #e1d3c2;
+}
+
+#nav-top a
+{
+	padding: 10px;
+	font-size: 12px;
+}
+
+#nav-top a:link, #nav-top a:visited
+{
+	color: #e1d3c2;
+	text-decoration: none;
+}
+
+#nav-top a:hover, #nav-top a:active
+{
+	color: #F6F9F9;
+	text-decoration: underline;
+}
+
+#nav-top-inner { padding: 5px; }
+
+#masthead
+{
+	height: 95px;
+	background-image: url(images/background-logo.png);
+	background-repeat: no-repeat;
+	background-position: 10px 0px;
+}
+
+#masthead h1 { text-indent: -2000px; }
+
+#masthead h1 a
+{
+	display: block;
+	width: 250px;
+	height: 80px;
+	padding: 0;
+	margin: 10px;
+}
+
+#nav-tabs { margin-top: -31px; }
+
+#nav-tabs .nav li a
+{
+	display: block;
+	float: right;
+	height: 28px;
+	width: 94px;
+	margin-right: 5px;
+	text-indent: -10000px;
+}
+
+#nav-tabs .nav li a#home
+{
+	background-image: url(images/nav-tabs-home-off.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#home-selected
+{
+	background-image: url(images/nav-tabs-home-on.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#library
+{
+	background-image: url(images/nav-tabs-library-off.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#library-selected
+{
+	background-image: url(images/nav-tabs-library-on.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#lesson
+{
+	background-image: url(images/nav-tabs-lesson-off.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#lesson-selected
+{
+	background-image: url(images/nav-tabs-lesson-on.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#places
+{
+	background-image: url(images/nav-tabs-places-off.png);
+	background-repeat: no-repeat;
+}
+
+#nav-tabs .nav li a#places-selected
+{
+	background-image: url(images/nav-tabs-places-on.png);
+	background-repeat: no-repeat;
+}
+
+h2, h3
+{
+	padding: 0;
+	margin: 0;
+}
+
+#nav-actions
+{
+	background-color: #603813;
+	color: #e1d3c2;
+}
+
+#nav-actions-inner { padding: 5px; }
+
+#nav-actions a:link, #nav-actions a:visited
+{
+	color: #e1d3c2;
+	text-decoration: none;
+}
+
+#nav-actions a:hover, #nav-actions a:active
+{
+	color: #F6F9F9;
+	text-decoration: underline;
+}
+
+#nav-actions .action
+{
+	display: inline;
+	color: #e1d3c2;
+	font-size: 12px;
+	padding: 0px 5px 0px 5px;
+}
+
+#nav-actions .action img { vertical-align: middle; }
+
+#action-print
+{
+	float: right;
+	margin-top: 3px;
+}
+
+#container-content { clear: all; }
+#container-content-inner { padding: 30px; }
+#one-column { }
+#one-column-inner { }
+
+#two-column-right
+{
+	width: 43%;
+	float: right;
+	background: #e1d3c2;
+	border: 1px solid #b3a395;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#two-column-right-inner { padding: 15px; }
+#two-column-left { margin-right: 48%; }
+
+ul.nav
+{
+	list-style-type: none;
+	list-style-position: default;
+	margin: 0;
+	padding: 0;
+}
+
+ul.nav li { display: inline; }
+
+.extrasbox
+{
+	background: #ccc;
+	padding: 0px 20px 20px 20px;
+}
+
+.extrasbox h3 { padding-top: 20px; }
+.extra { margin-top: 20px; }
+
+img.extraicon
+{
+	border: 0;
+	float: left;
+}
+
+.extratext { margin-left: 30px; }
+#videowidget { margin-bottom: 15px; }
+
+.video
+{
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.videocaption
+{
+	font-size: 11px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+.videocaption .title
+{
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#mapwidgettabs
+{
+	text-align: center;
+	height: 20px;
+}
+
+a#then
+{
+	display: block;
+	width: 130px;
+	height: 20px;
+	margin-left: 20px;
+	float: left;
+	background-image: url(images/map-tabs-then-off.png);
+	background-repeat: no-repeat;
+	text-indent: -10000px;
+}
+
+a#thenselected
+{
+	display: block;
+	width: 130px;
+	height: 20px;
+	margin-left: 20px;
+	float: left;
+	background-image: url(images/map-tabs-then-on.png);
+	background-repeat: no-repeat;
+	text-indent: -10000px;
+}
+
+a#now
+{
+	display: block;
+	width: 130px;
+	height: 20px;
+	margin-right: 20px;
+	float: right;
+	background-image: url(images/map-tabs-now-off.png);
+	background-repeat: no-repeat;
+	text-indent: -10000px;
+}
+
+a#nowselected
+{
+	display: block;
+	width: 130px;
+	height: 20px;
+	margin-right: 20px;
+	float: right;
+	background-image: url(images/map-tabs-now-on.png);
+	background-repeat: no-repeat;
+	text-indent: -10000px;
+}
+
+#mapwidget
+{
+	background: #b3906f;
+	padding: 10px;
+}
+
+#mapwidget-inner
+{
+	background: #e1d3c2;
+	padding: 10px;
+}
+
+#mapbox { padding: 10px; }
+#imagebox { padding: 10px; }
+.maptext { text-align: left; }
+
+.mapcaption
+{
+	text-align: left;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.mapzoom
+{
+	float: right;
+	margin: 3px 0px 10px 10px;
+	background-image: url(images/icon_zoom.gif;);
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	text-indent: -10000px;
+	background-position: left top;
+}
+
+.mapzoom a
+{
+	display: block;
+	height: 25px;
+	width: 25px;
+}
+
+#footer
+{
+	text-align: center;
+	background-color: #603813;
+}
+
+#footer a
+{
+	color: #fff;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+#footer-inner { padding: 10px; }

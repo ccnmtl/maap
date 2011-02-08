@@ -1,0 +1,10 @@
+To download the mymap with the locations and their lat/lng coordinates
+
+1. Visit Mark's MyMaps page:
+http://maps.google.com/maps/ms?f=q&hl=en&geocode=&time=&date=&ttype=&ie=UTF8&om=1&msa=0&msid=118241060221810250366.00043ed67ec6828dc108f&ll=40.71916,-73.997297&spn=0.040853,0.077162&z=14
+
+2. click on the 'View in Google Earth' link, and save the output to a file
+
+3. Insde the resulting kml file is another link - s/&amp;/&/ and then paste this link into a browser.
+
+4. download this file too - this is the kml file with the real data, and can be imported into this system using hte load_gmap.py script (use tg-admin shell, and them >> import load_gmap)

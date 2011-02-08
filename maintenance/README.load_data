@@ -1,0 +1,22 @@
+To rebuild the entire site:
+
+# Import the places 
+
+## (we are no longer using the google my maps to create the priliminary lists of places
+## we used to do this
+## (working-env)% tg-admin -c <your>.cfg shell
+>>>  from maintenance import load_gmap
+>>>  load_gmap.run()
+# import the place data, exported from maap-admin site
+>>>  from maintenance import load_place_data
+>>>  load_place_data.run()
+# import the images, pulled in over sshfs (/mnt/cunix/www-data)
+>>>  from maintenance import load_static_images
+>>>  load_static_images.run()
+# import the maps, pulled in over sshfs (/mnt/cunix/www-data)
+>>>  from maintenance import load_maps
+>>>  load_maps.run()
+>> CTRL-D
+
+say yes to apply db changes.
+

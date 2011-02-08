@@ -1,0 +1,582 @@
+/* START - PLACES Styles*/
+#nowthen-two-column-right
+{
+	width: 22%;
+	float: right;
+	background: #e1d3c2;
+	border: 1px solid #b3a395;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#nowthen-two-column-right-inner { padding: 15px; }
+#nowthen-two-column-left { margin-right: 25%; }
+#place_list { font-size: 10px; }
+#place_list div { margin-top: 10px; }
+
+#place_list .place_description
+{
+	/*This makes the description not appear in the places list
+	  but it will display in the google maps area
+	*/
+	display: none;
+}
+
+.panzoom_control
+{
+	background-repeat: no-repeat;
+	height: 18px;
+	width: 18px;
+	z-index: 9500;
+	position: absolute;
+}
+
+#panzoom1_zoomIn
+{
+	background-image: url(/static/images/controls/control_plus.jpg);
+	top: 75px;
+	left: 28px;
+}
+
+#panzoom1_zoomOut
+{
+	background-image: url(/static/images/controls/control_minus.jpg);
+	top: 96px;
+	left: 28px;
+}
+
+#panzoom1_left
+{
+	background-image: url(/static/images/controls/control_left.jpg);
+	top: 28px;
+	left: 7px;
+}
+
+#panzoom1_right
+{
+	background-image: url(/static/images/controls/control_right.jpg);
+	top: 28px;
+	left: 48px;
+}
+
+#panzoom1_up
+{
+	background-image: url(/static/images/controls/control_up.jpg);
+	top: 7px;
+	left: 28px;
+}
+
+#panzoom1_down
+{
+	background-image: url(/static/images/controls/control_down.jpg);
+	top: 49px;
+	left: 28px;
+}
+
+/*#panzoom1_recenter*/
+#panzoom1_fit
+{
+	background-image: url(/static/images/controls/control_center.jpg);
+	top: 28px;
+	left: 28px;
+}
+
+#map_canvas, #oldmap, #hideshow_options
+{
+	background-color: #e5e3df;
+	margin: 0, padding: 0;
+}
+
+#large-mapwidgettabs { height: 50px; }
+
+.controls
+{
+	padding: 5px;
+	background-color: none;
+	z-index: 9000;
+}
+
+.innertube { padding: 10px; }
+
+a#now-large, a#now-large-selected, a#then-large, a#then-large-selected
+{
+	display: block;
+	width: 300px;
+	height: 50px;
+	background-repeat: no-repeat;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a#now-large
+{
+	float: left;
+	background-image: url(/static/images/tab_map_large_off.png);
+	color: #000;
+}
+
+a#now-large-selected
+{
+	float: left;
+	background-image: url(/static/images/tab_map_large_on.png);
+	color: #fff;
+}
+
+a#then-large
+{
+	float: right;
+	background-image: url(/static/images/tab_map_large_off.png);
+	color: #000;
+}
+
+a#then-large-selected
+{
+	float: right;
+	background-image: url(/static/images/tab_map_large_on.png);
+	color: #fff;
+}
+
+#mapwidget
+{
+	background: #b3906f;
+	padding: 10px;
+}
+
+#mapwidget-inner
+{
+	background: #e1d3c2;
+	padding: 10px;
+}
+
+/* END - PLACES Styles*/
+/* ******* panzoom ******* */
+
+/*
+WebMaster NOTE: all elements with a 'clip' attribute MUST have the same width/height
+		so update both at the same time
+*/
+
+.panzoom { }
+
+.panzoom_container
+{
+	width: 215px;
+	height: 200px;
+	clip: rect(0px,215px,200px,0px);
+	display: block;
+	overflow: hidden;
+	/*necessary for IE to display properly*/
+	position: absolute;
+}
+
+.overview_border
+{
+	overflow: hidden;
+	z-index: 2000;
+}
+
+/*.ccnmtl.overview_border -- ie6 incompatible css*/
+.overview_border
+{
+	width: 215px;
+	height: 200px;
+	position: relative;
+}
+
+/* adding class="google" to the overview_border div will make it google-style*/
+/*
+.google.overview_border
+{
+	border-top: 1px solid rgb(151, 151, 151);
+	border-left: 1px solid rgb(151, 151, 151);
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	background-color: white;
+	right: 0px;
+	bottom: 0px;
+}
+*/
+.panzoom_overview
+{
+	overflow: hidden;
+	position: absolute;
+	z-index: 2000;
+	background-color: rgb(229, 227, 223);
+}
+
+/*.ccnmtl >: not compatible with IE6 */
+.panzoom_overview
+{
+	border: 1px solid rgb(151, 151, 151);
+	width: 215px;
+	height: 200px;
+	left: 7px;
+	top: 7px;
+	/*sky */
+	clip: rect(0px,215px,200px,0px);
+}
+/*
+.google > .panzoom_overview
+{
+	border: 1px solid rgb(151, 151, 151);
+	width: 111px;
+	height: 111px;
+	left: 7px;
+	top: 7px;
+	clip: rect(0px,111px,111px,0px);
+}
+*/
+.overviewSelector
+{
+	z-index: 4000;
+	position: absolute;
+	opacity: 0.30;
+	filter: alpha(opacity=30);
+	color: black;
+	background-color: #6666cc;
+	height: 100px;
+	width: 100px;
+	border-style: solid;
+	border-color: rgb(136, 136, 255) rgb(17, 17, 85) rgb(17, 17, 85) rgb(136, 136, 255);
+	border-width: 2px;
+	cursor: move;
+}
+
+/*the overview selector that is being dragged*/
+.overviewSelector.ghost
+{
+	z-index: 4000;
+	position: absolute;
+	opacity: 1.0;
+	filter: none;
+	background-color: transparent;
+	height: 100px;
+	width: 100px;
+	border-style: solid;
+	border-color: rgb(136, 136, 255) rgb(17, 17, 85) rgb(17, 17, 85) rgb(136, 136, 255);
+	border-width: 2px;
+	cursor: move;
+}
+
+/* ******* END panzoom ******* */
+#map_canvas.bigmap
+{
+	width: 600px;
+	height: 400px;
+	clip: rect(0px,600px,400px,0px);
+}
+
+/* ******* START places/then ******* */
+/* ******* START view icons ******* */
+/* LARGE */
+#view3
+{
+	display: block;
+	float: right;
+	width: 31px;
+	height: 27px;
+}
+
+#view3 .maplist_option
+{
+	display: block;
+	background-image: url(/static/images/view_large.png);
+	background-repeat: no-repeat;
+	width: 31px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+#view3 .maplist_option_on
+{
+	display: block;
+	background-image: url(/static/images/view_large_on.png);
+	background-repeat: no-repeat;
+	width: 31px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+/* MEDIUM */
+#view2
+{
+	display: block;
+	float: right;
+	width: 24px;
+	height: 27px;
+}
+
+#view2 .maplist_option
+{
+	display: block;
+	background-image: url(/static/images/view_medium.png);
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+#view2 .maplist_option_on
+{
+	display: block;
+	background-image: url(/static/images/view_medium_on.png);
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+/* SMALL */
+#view1
+{
+	display: block;
+	float: right;
+	width: 14px;
+	height: 27px;
+}
+
+#view1 .maplist_option
+{
+	display: block;
+	background-image: url(/static/images/view_small.png);
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+#view1 .maplist_option_on
+{
+	display: block;
+	background-image: url(/static/images/view_small_on.png);
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+#viewtitle
+{
+	display: block;
+	float: right;
+	background-image: url(/static/images/view_title.png);
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 27px;
+	text-indent: -1000px;
+}
+
+/* ******* END view icons ******* */
+#maplist
+{
+	position: relative;
+	top: 7px;
+	left: 4px;
+	display: block;
+	height: 223px;
+	width: 570px;
+	/*width - left*/
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+.timelinerow
+{
+	background-image: url(/static/images/timeline_horizontal.png);
+	background-repeat: repeat-x;
+	background-color: #603813;
+	height: 20px;
+	padding: 0;
+	border: 0;
+	background-position: 0px 3px;
+}
+
+.yearmarker
+{
+	position: absolute;
+	left: 0px;
+	bottom: -22px;
+	padding-top: 5px;
+	padding-left: 5px;
+	background-image: url(/static/images/timeline_vertical.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	font-weight: normal;
+	color: #E1D3C2;
+	font-size: 10px;
+}
+
+.mapmark
+{
+	width: 6px;
+	height: 6px;
+	position: absolute;
+	background-color: #000;
+	border: 2px solid #000;
+	font-size: 3px;
+}
+
+.mapmark:hover
+{
+	background-color: #fff;
+	border: 2px solid #603813;
+}
+
+#viewcontroller
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 3000;
+}
+
+#map_marks
+{
+	background-image: url(/static/images/small_gridlines.png);
+	background-repeat: repeat-y;
+	background-position: top left;
+}
+
+#timelinegraphic
+{
+	position: absolute;
+	bottom: 40px;
+}
+
+.listcontroller
+{
+	/*display: block;*/
+	/*keep display:none if map_marks are the first view*/
+	display: none;
+	top: 80px;
+	position: absolute;
+	z-index: 3000;
+	width: 20px;
+	height: 40px;
+}
+
+#move_map_left
+{
+	left: 0px;
+	background-image: url(/static/images/arrow_left.png);
+	background-repeat: no-repeat;
+}
+
+#move_map_right
+{
+	right: 0px;
+	background-image: url(/static/images/arrow_right.png);
+	background-repeat: no-repeat;
+}
+
+.maplist_view
+{
+	display: none;
+	border: 0;
+	/*see maplist_show*/
+}
+
+.maplist_show { display: block; }
+
+.mapdetails {
+	width: 100%;
+	text-align: left; 
+	height: 50px;
+	position: relative; 
+	bottom: 50px; 
+	background-color: #eee; 
+	opacity: 0.65; 
+	filter: alpha(opacity=65); 
+	-moz-opacity: 0.65;
+}
+
+#smallmapthumbs, #bigmapthumbs
+{
+	/*this height must be set so that the divs are space-taking blocks
+	  this exposes the containing left/right controls to clickability
+	  in IE7 (this height should correspond to the inner table)
+	*/
+	height: 212px;
+}
+
+#oldmap { height: 400px; }
+/*IE6 fix: ie6 doesn't recognize child selectors, 
+  so #oldmap > .controls didn't work
+*/
+#controls { position: absolute; }
+#patchmaker { height: 40px; }
+#patchmaker > .controls { position: absolute; }
+.mapmeta_view { display: none; }
+.mapmeta_view.mapmeta_show { display: block; }
+
+/* ******* END places/then ******* */
+#map_info_bubble
+{
+	/*necessary for web app functionality */
+	position: absolute;
+	z-index: 9500;
+}
+
+#bubbletextbox {
+	width: 100%; 
+	text-align: left; 
+	height: 50px; 
+	position: relative; 
+	bottom: 50px; 
+	background-color: #eee; 
+	opacity: .65; 
+	filter: alpha(opacity=65); 
+	-moz-opacity: 0.65;
+}
+
+.bubbletext {
+	padding: 10px; 
+	font-size: 10px; 
+	font-weight: bold;
+}
+
+#mapmeta
+{
+	width: 600px;
+	background-color: #eae7d9;
+}
+
+#mapmeta-inner
+{
+	padding: 5px;
+	font-size: 12px;
+}
+
+/********* printing **********/
+
+@media print
+{
+	.overviewSelector
+	{
+		filter: none;
+		opacity: 1.0;
+		background-color: transparent;
+	}
+	
+	#panzoom1_zoomIn, #panzoom1_zoomOut { display: none; }
+}
+
+/********* END printing **********/
+#icon-navigator2
+{
+	position: absolute;
+	top: -13px;
+	left: 5px;
+	width: 40px;
+	height: 46px;
+	background-image: url(/static/images/icon_navigator2.png);
+}
+
+#navigator-top {background-color: #603813; height: 190px;}
+#navigator-bottom {background-color: #603813;}
+
+

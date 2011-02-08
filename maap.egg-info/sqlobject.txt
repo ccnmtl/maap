@@ -1,0 +1,2 @@
+db_module=maap.model
+history_dir=$base/maap/sqlobject-history

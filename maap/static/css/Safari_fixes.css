@@ -1,0 +1,90 @@
+/* ======================== INTERFACE ======================== */
+
+
+/* *************** General interface ************** */
+
+#basenav
+{
+	/*height: 20px;*/
+	height: 1.7em;
+}
+
+#appnav
+{
+	/*height: 30px;*/
+	height: 2.6em;
+}
+
+#appnav ul li
+{
+	/*padding: 0 10px;*/
+	padding: 0 0.9em;
+}
+
+#appnav ul li#browse ul
+{
+	margin: -34px 0 0 4.3em;
+}
+
+#appnav ul li#browse ul li#letters
+{
+	width: 5.8em;
+}
+
+#appnav ul li#browse ul li#letters div
+{
+	width: 5.8em;
+}
+
+#appnav ul li#browse ul li#biographies
+{
+	width: 7.8em;
+}
+
+#appnav ul li#browse ul li#biographies div
+{
+	width: 7.8em;
+}
+
+#appnav #apppublish
+{
+	margin: 0.55em 0 0 1em;
+}
+
+#content
+{
+	padding: 0.8em 2.1em 0 2.1em;
+}
+
+#content p
+{
+	line-height: 135%;
+}
+
+
+
+
+/* ======================== TYPOGRAPHY ======================== */
+
+
+/* *************** General typography ************** */
+
+#basenav
+{
+	font-size: 0.85em;
+}
+
+#appnav
+{
+	font-size: 0.85em;
+}
+
+#advsearch
+{
+	font-size: 0.9em;
+}
+
+#content
+{
+	font-size: 0.85em;
+}

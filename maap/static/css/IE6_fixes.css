@@ -1,0 +1,61 @@
+.overview_border { position: absolute; }
+
+.mapdetails
+{
+	position: absolute;
+	margin-left: -50%;
+}
+
+#bubbletextbox {
+	position: absolute;
+	margin-bottom: -33px;
+	left:2px;
+}
+
+#container-content-inner
+{
+	/*fix mysterious grey bar on the right*/
+	padding: 30px 0 0 0;
+	margin-left: 30px;
+	width: 800px;
+	margin-right: -30px;
+}
+
+#nav-tabs { margin-top: -28px; }
+.then_now_tabber_option { margin: 0 0 -10px 10px; }
+#navigator-top { height: 190px; }
+#maplist { height: 200px; }
+#maplist_view { height: 200px; }
+
+.timelinerow
+{
+	background-image: url(/static/images/timeline_horizontal.png);
+	background-repeat: repeat-x;
+	background-color: #603813;
+	height: 20px;
+	padding: 0;
+	border: 0;
+	background-position: 0px 3px;
+}
+
+#timelinegraphic
+{
+	position: absolute;
+	bottom: 10px;
+}
+
+#smallmapthumbs .yearmarker { bottom: -7px; }
+#bigmapthumbs .yearmarker { bottom: -22px; }
+
+.mapdetails
+{
+	width: 100%;
+	text-align: left;
+	height: 50px;
+	position: absolute;
+	top: 116px;
+	background-color: #eee;
+	opacity: 0.65;
+	filter: alpha(opacity=65);
+	-moz-opacity: 0.65;
+}
