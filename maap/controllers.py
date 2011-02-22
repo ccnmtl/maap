@@ -625,8 +625,11 @@ class Root(RESTResource, controllers.RootController):
     # mobile view - jqtouch driven
     @expose(template=".templates.mbl_index")
     def mbl_index(self):
-	    places = list(Place.select())
-	    
+	    all_places = list(Place.select())
+
+	    # hard-code the removal of 2 places that aren't ready for the mobile page
+	    places = [p for p in all_places if (p.name !='lattings' and p.name != 'setauket')]
+
 	    # compute the number of places in each region for mobile view
 	    region_counts = {}
 	    region_counts['all'] = len(places)

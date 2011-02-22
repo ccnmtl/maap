@@ -20,7 +20,10 @@ function getPlace(id){
        placeid= "#"+id;
         // $("#placeholder div.ajax-results").empty();
 	//$(placeid+" ).empty();
-        placeurl = 'places/'+id+'.html';
+        // this is the live url
+        placeurl = '/mbl_place/'+id+'.html';
+        // for testing, on dev
+        //placeurl = '/mbl_place/'+id;
         //alert(placeid+ " "+ placeurl);
 	$.ajax({
 	  	url: placeurl,
@@ -138,7 +141,7 @@ function createMarker(map, name, latlng, id) {
                title: name});
     google.maps.event.addListener(marker, "click", function() {
       if (infowindow) infowindow.close();
-      panestr = '<a onclick="getPlace('+id+')" href="/mbl_place/'+id+'.html"><b>'+name+'</b> </a><br>';
+      panestr = '<a onclick="getPlace('+id+')" href="#'+id+'"><b>'+name+'</b> </a><br>';
       infowindow = new google.maps.InfoWindow({content: panestr });
       infowindow.open(map, marker);
     });

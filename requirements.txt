@@ -1,4 +1,4 @@
--f http://kang.ccnmtl.columbia.edu/eggs/
+-f http://kodos.ccnmtl.columbia.edu/eggs/
 
 TurboJson >= 0.9.1
 TurboKid >= 0.9.3
@@ -10,7 +10,7 @@ cElementTree >= 1.0.5
 PasteScript >= 0.5
 FormEncode >= 0.4
 setuptools >= 0.6a11
-RuleDispatch
+# RuleDispatch >= 0.5
 nose >= 0.8.6
 TurboGears >= 1.0b1
 PyProtocols >= 1.0a0dev
