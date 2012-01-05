@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 from turbogears.finddata import find_package_data
 
 import os
-execfile(os.path.join("maap", "release.py"))
+execfile(os.path.join("brownfield", "release.py"))
 
 setup(
-    name="maap",
+    name="brownfield",
     version=version,
     
     # uncomment the following lines if you fill them out in release.py
@@ -17,13 +17,13 @@ setup(
     #license=license,
     
     install_requires = [
-        "TurboGears >= 1.0.2.2",
+        "TurboGears >= 1.0.1",
     ],
-    scripts = ["start-maap.py"],
+    scripts = ["start-brownfield.py"],
     zip_safe=False,
     packages=find_packages(),
-    package_data = find_package_data(where='maap',
-                                     package='maap'),
+    package_data = find_package_data(where='brownfield',
+                                     package='brownfield'),
     keywords = [
         # Use keywords if you'll be adding your package to the
         # Python Cheeseshop
@@ -58,15 +58,5 @@ setup(
         # 'Framework :: TurboGears :: Widgets',
     ],
     test_suite = 'nose.collector',
-    entry_points = """
-    [turbogears.command]
-        load_gmap = maintenance:LoadGmap
-        load_maps = maintenance:LoadMaps
-        image_thumbs = maintenance:ImageThumbs
-        load_place_data = maintenance:LoadPlaceData
-        load_static_images = maintenance:LoadStaticImages
-        load_video_data = maintenance:LoadVideoData
-        make_patches = maintenance:MakePatches
-    """    
     )
     
