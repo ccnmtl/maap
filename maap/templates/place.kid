@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="/static/css/print.css" media="print" type="text/css" />
 		
 		<script src="/static/javascript/view_selector/view_selector.js" type="text/javascript"></script> 
-		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=${tg.gmap_key}" type="text/javascript"></script> 
+               <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=${tg.gmap_key}&amp;sensor=false"></script>
 		<script type="text/javascript" src="/static/javascript/gmap_common.js"></script> 
 		<script type="text/javascript" src="/static/javascript/gmap_patch.js"></script> 
 		<script type="text/javascript" src="/static/javascript/MochiKit/DragAndDrop.js"></script> 

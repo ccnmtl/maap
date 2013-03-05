@@ -6,11 +6,11 @@
 ViewSelectors['then_now_tabber'] = {};
 
 function loadPlace(patch_lat, patch_lng, color) {
-    if (GBrowserIsCompatible()) {
+    if (document.getElementById) {
 	var patch_func = partial(nowPatch, patch_lat, patch_lng, color);
 	connect(window, 'onload', patch_func);
 	connect(ViewSelectors['then_now_tabber'], 'change_view', patch_func);
-	connect(window, 'onunload', GUnload);
+	// connect(window, 'onunload', GUnload); 
     }
 }
 
@@ -18,22 +18,24 @@ function nowPatch(patch_lat, patch_lng, color) {
     // show the terrain map
     initMAAPIcons();
 
-    var mapOpts = { mapTypes : [G_PHYSICAL_MAP] };
-    var map = new GMap2(document.getElementById("map_canvas"), mapOpts);
+    var mapOpts = {  mapTypeId : google.maps.MapTypeId.TERRAIN,
+		     center : new google.maps.LatLng(patch_lat, patch_lng),
+		     zoom: 14
+		  };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOpts);
 
-    map.setCenter(new GLatLng(patch_lat, patch_lng), 14);
-
-    // disable dragging on now map patch 
-    map.disableDragging();
+    // disable dragging on now map patch
+    // map.disableDragging()
+    map.setOptions({draggable:false}); 
 
     // add controls 
     //map.addControl(new GSmallZoomControl());
     //map.addControl(new GScaleControl());
     
-    var point = new GLatLng(patch_lat, patch_lng);
-    var markerOpts = { icon : ICONS[color] };
-    //logDebug(ICONS[color].image);
-    var marker = new GMarker(point, markerOpts);
+    //var point = new GLatLng(patch_lat, patch_lng);
+    // var markerOpts = { icon : ICONS[color] };
+        //logDebug(ICONS[color].image);
+    //var marker = new GMarker(point, markerOpts);
 
     /* here is some sample code for the info windows 
     GEvent.addListener(marker, "mouseover", function() {
@@ -42,6 +44,14 @@ function nowPatch(patch_lat, patch_lng, color) {
     GEvent.addListener(marker, "mouseout", marker.closeInfoWindow);
     */
 
-    map.addOverlay(marker);
+    //map.addOverlay(marker);
+
+    markerOpts = merge({ position: new google.maps.LatLng( patch_lat, patch_lng),
+			  map: map } , 
+			ICONS[color]); // v2 -> v3
+    var marker  = new google.maps.Marker(markerOpts);
+    //var marker = new google.maps.Marker({ position: new google.maps.LatLng( patch_lat, patch_lng),
+    // map: map });
+
 }
 
