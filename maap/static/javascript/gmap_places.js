@@ -2,9 +2,8 @@ var maap_places;
 
 function loadPlaces(data) {
     maap_places = data.places;
-    if (GBrowserIsCompatible()) {
+    if (document.getElementById) {
 	connect(window,'onload',mapPlaces);
-	connect(window, 'onunload', GUnload);
     }
 }
 
@@ -30,14 +29,65 @@ function parseBigmapQstr() {
 var sky;
 var possky;
 
+/// Use this code to adapt from v2 - jsb - http://koti.mbnet.fi/ojalesa/boundsbox/attachinfowindow.htm
+
+///     Insert this code before constructing Maps or Markers
+
+/**
+ * attachInfoWindow() binds InfoWindow to a Marker 
+ * Creates InfoWindow instance if it does not exist already 
+ * @extends Marker
+ * @param InfoWindow options
+ * @author Esa 2009
+ */
+google.maps.Marker.prototype.attachInfoWindow = function (options){
+  var map_ = this.getMap();
+  map_.bubble_ = map_.bubble_ || new google.maps.InfoWindow();
+  google.maps.event.addListener(this, 'click', function () {
+    map_.bubble_.setOptions(options);
+    map_.bubble_.open(map_, this);
+  });
+  map_.infoWindowClickShutter = map_.infoWindowClickShutter || 
+  google.maps.event.addListener(map_, 'click', function () {
+    map_.bubble_.close();
+  });
+}
+
+/**
+ * accessInfoWindow()
+ * @extends Map
+ * @returns {InfoWindow} reference to the InfoWindow object instance
+ * Creates InfoWindow instance if it does not exist already 
+ * @author Esa 2009
+ */
+google.maps.Map.prototype.accessInfoWindow = function (){
+  this.bubble_ = this.bubble_ || new google.maps.InfoWindow();
+  return this.bubble_;
+}
+
 function mapPlaces() {
-    // show the terrain map
-    var opts = { mapTypes : new Array(G_PHYSICAL_MAP) };
-    var map = new GMap2(document.getElementById("map_canvas"), opts);
     //LAYOUT 
     DEFAULT_LAT  = 40.763901;
     DEFAULT_LNG  = -73.899536;
     DEFAULT_ZOOM = 11;
+
+    var mapOpts = {  mapTypeId : google.maps.MapTypeId.TERRAIN,
+		     center : new google.maps.LatLng(DEFAULT_LAT, DEFAULT_LNG),
+		     zoom: DEFAULT_ZOOM,
+
+		     // add controls
+		     overviewMapControl: true,
+		     overviewMapControlOptions: {
+			 opened: true,
+			 position: google.maps.ControlPosition.TOP_LEFT
+		     }, 
+		     zoomControlOptions : { 
+			 style : google.maps.ZoomControlStyle.LARGE
+		     },
+		     streetViewControl : false
+
+		  };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOpts);
     
     bigmapPos = parseBigmapQstr();
 
@@ -55,29 +105,20 @@ function mapPlaces() {
 	bigmap_zoom = DEFAULT_ZOOM;
     }
     
-    map.setCenter(new GLatLng(bigmap_lat, bigmap_lng), bigmap_zoom);
+    map.setCenter(new google.maps.LatLng(bigmap_lat, bigmap_lng));
+    map.setZoom(bigmap_zoom);
 
-    //CONTROLS
-    var overview_control_pos = new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(10,10));
-
-    sky = new GOverviewMapControl();
-    //map.addControl(sky, overview_control_pos);
-    map.addControl(sky);
-    //map.addControl(new GOverviewMapControl())
-    map.addControl(new GLargeMapControl());
-	
     initMAAPIcons();
     forEach(maap_places, function(p) {
-	var point = new GLatLng(p.latitude, p.longitude);
-	var markerOpts = { icon : ICONS[p.color] }
-	var mark = new GMarker(point, markerOpts);
+	var point = new google.maps.LatLng(p.latitude, p.longitude);
+	var markerOpts = merge({ position: point, map : map } , ICONS[p.color]);
+	var mark = new google.maps.Marker(markerOpts);
 
 	//var content = '<a href="/blah">Tontine Coffee House</a>';
 
 	//mark.bindInfoWindowHtml(content);
-	mark.bindInfoWindow($('place_'+p.id),{'maxWidth':300});
+	mark.attachInfoWindow({ 'content' : $('place_'+p.id), 'boxClass' : 'infowin', boxStyle : { 'maxWidth' : 300, 'borderRadius' : 5 } } );
 	maap_marker_groups[p.color].push(mark);
-	map.addOverlay(mark);
     });
 
     //moveOverview('gmap_overview_destination');

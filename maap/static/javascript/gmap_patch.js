@@ -10,7 +10,6 @@ function loadPlace(patch_lat, patch_lng, color) {
 	var patch_func = partial(nowPatch, patch_lat, patch_lng, color);
 	connect(window, 'onload', patch_func);
 	connect(ViewSelectors['then_now_tabber'], 'change_view', patch_func);
-	// connect(window, 'onunload', GUnload); 
     }
 }
 
@@ -26,7 +25,11 @@ function nowPatch(patch_lat, patch_lng, color) {
 
     // disable dragging on now map patch
     // map.disableDragging()
-    map.setOptions({draggable:false}); 
+    map.setOptions({disableDefaultUI: true,
+		    draggable : false, 
+		    disableDoubleClickZoom : true,
+		    scrollwheel : false
+		   }); 
 
     // add controls 
     //map.addControl(new GSmallZoomControl());
