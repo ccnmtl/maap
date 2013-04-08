@@ -190,12 +190,12 @@ function maap_hideshow(evt) {
 
 function maap_hide(color) {
     forEach(maap_marker_groups[color], function(m) {
-	m.hide();
+	m.setVisible(false);
     });
 }
 
 function maap_show(color) {
     forEach(maap_marker_groups[color], function(m) {
-	m.show();
+	m.setVisible(true);
     });
 }
