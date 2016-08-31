@@ -1,1 +1,0 @@
-../deploy_specific/wget_maap-admin.sh
