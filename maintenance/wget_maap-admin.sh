@@ -78,6 +78,11 @@ cp -r ../../maap/static/* static
 # just make sure the admin pages are deleted - exclude-directories doesn't seem to work
 rm -rf admin
 
+echo ${REPLACE_KEY}
+echo ${PUBLISH_KEY}
+echo ${ADMIN_URL}
+echo ${PUBLISH_URL}
+
 # search/replace the google key, as well as any extraneous dev links
 find . -type f | xargs perl -pi -e "s#${REPLACE_KEY}#${PUBLISH_KEY}#g; \
                                     s#${ADMIN_URL}#${PUBLISH_URL}#g"
