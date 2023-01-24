@@ -166,16 +166,14 @@
 			</div>
 		</div>
 		<span class="partnertext">Produced by CCNMTL, Chase, Teachers College, and CCI</span>
-		<!-- Google Analytics -->
-		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-E7CV705Y7C"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
 		
-		<script type="text/javascript">
-			var pageTracker = _gat._getTracker("UA-311226-11");
-			pageTracker._initData();
-			pageTracker._trackPageview();
+		  gtag('config', 'G-E7CV705Y7C', { 'anonymize_ip': true });
 		</script>
 		<!-- Google Analytics -->
 
